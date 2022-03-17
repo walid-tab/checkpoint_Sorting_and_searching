@@ -1,0 +1,30 @@
+PROCEDURE Insertion_sort(card : ARRAY_OF INTEGER[n])
+VAR
+    tab : ARRAY_OF type[n];
+    i,j,aux:INTEGER;
+    n:INTEGER:=14; //nombre des cards (taille du tableau)
+BEGIN
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        aux:=tab[i];
+        j:=i-1;
+        WHILE (j>=0 AND tab[j]>aux) DO
+            tab[j+1]:=tab[j];
+            j:=j-1;
+        END_WHILE
+        tab[j+1]:=aux;
+    END_FOR
+END
+ALGORITHM Insertion_sort_card
+VAR
+    i: INTEGER;
+    card:=[5,1,12,7,4,2,2,9,13,1,7,10,6,11];
+    
+BEGIN
+    //appel au procédure insertion_sort
+    Insertion_sort(card);
+
+    //afficher les cards aprés le trie
+    FOR i FROM 0 TO card.length-1 STEP 1  DO
+        write(card[1]);
+    END_FOR
+END
